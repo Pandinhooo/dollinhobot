@@ -1,0 +1,38 @@
+$reply
+
+$argsCheck[>1;
+`Uso:
+  D!banir @usuário <motivo>`
+]
+
+$onlyPerms[ban;Você precisa da permissão 'Banir membros'!]
+
+$onlyBotPerms[ban;Eu preciso da permissão 'Banir membros'!]
+
+$if[$rolePosition[$highestRole[$authorID]]<=$rolePosition[$highestRole]]
+Você não pode banir alguém com um cargo maior que o seu
+$endif
+
+$if[$rolePosition[$highestRole[$botID]]<=$rolePosition[$highestRole]]
+Eu não posso banir alguém com um cargo maior que o meu
+$endif
+
+$c[$if[$mentioned[1]==$botID]]
+$c[Você não pode me banir]
+$c[$endif]
+
+$if[$mentioned[1]==$userID]
+Você não pode se banir
+$endif
+
+$if[$mentioned[1]==$serverOwner]
+Você não pode banir o dono
+$endif
+
+$if[$isBanned[$message[1]]]
+$mentioned[1] já foi banido
+$endif
+
+$ban[Motivo: $noMentionMessage]
+<@$mentioned[1]> foi banido!
+Motivo: $noMentionMessage
