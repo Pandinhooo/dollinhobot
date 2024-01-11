@@ -1,0 +1,4 @@
+$argsCheck[>1;`D!simounao <pergunta de sim ou não>`]
+$reply
+$nomention
+$randomText[Sim;Não;Talvez;Não entendi]
