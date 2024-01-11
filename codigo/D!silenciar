@@ -1,0 +1,25 @@
+$nomention
+$reply
+
+$onlyPerms[moderatemembers;Você precisa da permissão 'Silenciar membros'!]
+
+$onlyBotPerms[moderatemembers;Eu preciso da permissão 'Silenciar membros'!]
+
+$argsCheck[>2;`D!silenciar <@usuário> <tempo (15s, 10m, 1h, 12d)>`]
+
+$onlyIf[$mentioned[1]!=$authorID;Você não pode se silenciar]
+
+$onlyIf[$rolePosition[$highestRole[$authorID]]<$rolePosition[$highestRole[$mentioned[1]]];Você não pode silenciar alguém com um cargo maior que o seu]
+
+$try
+ $timeout[$message[2];$mentioned[1]]
+ <@$mentioned[1]> foi silenciado!
+$catch
+ Um erro aconteceu ao tentar silenciar <@$mentioned[1]>!
+ Erro:
+  `$error[source]`
+ Tente verificar se houve um erro de escrita na sintaxe!
+ Ex:
+  `D!silenciar @ppandinhoo 1h`
+ Nota: o silenciamento não pode passar de 28 dias
+$endtry
