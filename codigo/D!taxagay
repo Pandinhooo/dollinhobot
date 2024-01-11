@@ -1,0 +1,19 @@
+$nomention
+$reply
+$argsCheck[>1;`D!taxagay @usuário`]
+
+$if[$username[$mentioned[<]]!=Dollinho]
+ $username[$mentioned[<]] tem $random[0;100]% de chance de ser gay
+ $setVar[taxaguei_uso;$sum[$getVar[taxaguei_uso];1]]
+$else
+ Eu não, ow
+$endif
+
+$c[Código ruim porque nao sou premium hur hur hur hur, hur hur hor hur hur hur]
+$if[$getVar[taxaguei_uso]==25]
+
+$elseif[$getVar[taxaguei_uso]==45]
+
+$if[$getVar[taxaguei_uso]>60]
+
+$cooldown[10s;$randomText[Espera 10 segundos antes de usar esse comando de novo, só de graça:100:;Você não acha que tá levando isso a sério de mais?]]
