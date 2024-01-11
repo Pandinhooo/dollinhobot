@@ -1,0 +1,10 @@
+$nomention
+
+$argsCheck[>1;`Uso: D!desilenciar @usuário`]
+
+$onlyPerms[moderatemembers;Você precisa da permissão 'Gerenciar membros']
+
+$onlyBotPerms[moderatemembers;Eu preciso da permissão 'Gerenciar membros']
+
+$untimeout[]
+$username[$mentioned[<]] foi desilenciado
