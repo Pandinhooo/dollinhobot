@@ -1,0 +1,159 @@
+$nomention
+$reply
+
+$argsCheck[>1;`D!checarfato <fato que você quer que eu cheque>`]
+
+$if[$checkCondition[$getVar[checarfato_valorFala]<90]]
+    $setVar[checarfato_mensagens;$sum[$getVar[checarfato_mensagens];1]]
+
+    $if[$checkContains[$message;?]==false]
+        Isso foi uma pergunta? Enfim...
+    $endif
+
+    $if[$checkContains[$message;Monkey Island;Sigma;CS;CS GO;CS 1.6]==true]
+        $randomText[
+        Todos sabemos que não;
+        Nop;
+        Nem se a vaca tentasse tossir;
+        nao nao nao nao nao nao nao NAO]
+    $endif
+    
+    $if[$checkContains[$message;Quando;Qnd;Como;Você;Cê;Vc;Tu]==false]
+        $randomText[
+            Sim;
+            Não;
+            Talvez;
+            É provável;
+            É improvável;
+            Não posso opinar..;
+            É possível;
+            É impossível;
+            Nem pensar;
+            Pensando bem, sim;
+            Vi na Internet que é verdade;
+            Vi na Internet que é fake news;
+            Tem uns $random[70;100]% de chance de ser real;
+            Tem uns $random[0;40]% de chance, vai que, né;
+            ...talveeez...;
+            Se ninguém sabe como é que eu vou saber?;
+            Se todo mundo sabe por que perguntou pra mim?;
+            eu... não sei;
+            Uma máquina é capaz de pensar em tudo mas sempre tem suas exceções...;
+            Huh... não;
+            Huh... sim;
+            \*tsc*, não;
+            \*pog*, SIM;
+            Em pleno $year ainda acreditam nisso?;
+            Será? Não sei;
+            nnnnnnão?;
+            sssssssim;
+            HA, não;
+            Ah, sim;
+            **Yess**;
+            **Nooo**;
+            **Simm**;
+            **Não**;
+            :thumbsup: Sim;
+            :thumbsdown: Não;
+            Eu diria que não;
+            Eu diria que sim;
+            Como assim?;
+            Sei lá;
+            Isso você pergunte pra outro;
+            Algumas perguntas nao merecem respostas;
+            Algumas respostas não merecem perguntas;
+            Reflita melhor e voce saberá :mirror:;
+            Boa pergunta porque eu nao sei;
+        ]
+    $endif
+
+    $if[$checkContains[$message;Quando;Qnd]==true]
+        $randomText[
+        Num futuro distante;
+        Num futuro nem tão distante assim!;
+        Não sei;
+        Perdi a noção do tempo;
+        Num outro universo talvez;
+        Hoje?;
+        Quando você menos esperar...;
+        Quando eu receber um aumento;
+        Pode ser em alguns anos...;
+        Nunca!!]
+    $endif
+
+    $if[$checkContains[$message;Como]==true]
+        $randomText[
+        A questão aqui é se devemos;
+        Eu sei lá;
+        Só se o $serverOwner deixar, talvez há chance;
+        Não sirvo pra isso;
+        Vai no Google;
+        Vai no Bing;
+        Vai no Yahoo;
+        Pergunte a outro;
+        Eu não tenho mãos entao nao posso ajudar;
+        Eh? Cê acha que eu sei?]
+    $endif
+
+    $if[$checkContains[$message;Você;Cê;Tu;Vc]==true]
+        $randomText[
+          Eu?;
+          Não mencione o meu nome em vão;
+          Não;
+          Sim;
+          Não, mas com exceções;
+          Sim, mas com exceções;
+          Pessoalmente falando, sim;
+          Pessoalmente falando, não;
+          Isso tem cara de coisa que o <@$randomUser> faria;
+          Eu evoluí mas nao tanto pra saber;
+          Eu evoluí então sim;
+          Eu não sei...;
+          Pensando bem, eu não sei;
+          Pensando bem, melhor sim;
+          Pensando bem, melhor não;
+          Pergunte isso ao <@$randomUser>, não a mim]
+    $endif
+$endif
+
+$if[$checkContains[$message;Por que;Porque;pq;Por quê]==true]
+    $randomText[
+       Boa pergunta;
+       Veja bem, $message já é uma pergunta ruim;
+       Vê na Internet;
+       Você tá exigindo muito de mim;
+       nao sebo;
+       Pergunte a sUA MAE;
+       Pergunta ao <@$randomUser>;
+       Tem tanta gente por aí com uma resposta e ce pergunta pra MIM?
+       Bruh;
+       Ah mas essa é muito fácil, manda outra mais dificil;
+       Eeeeeeeeeh....;
+       Pergunte ao famoso Alberto Einstenho®;
+       Pergunta tipica de burro...;
+       Pergunta tipica de gente doida;
+       Ok Gôgle! $message;
+       Se isso fosse tema do Enem todo mundo sabia;
+       Sejamos francos..ninguem sabe]
+$endif
+
+$if[$checkCondition[$getVar[checarfato_mensagens]>=10]]
+    $setVar[checarfato_valorFala;$random[0;100]]
+        
+    $if[$checkCondition[$getVar[checarfato_valorFala]>=90]]
+        $randomText[
+            Chega;
+            Para;
+            Já deu de checar fatos por agora;
+            Se acalma mano;
+            Sem checagem de fatos hoje;
+            Nuh uh sem checagem de fatos;
+            Não quero checar esse fato;
+            não to afim]
+                
+            $setVar[checarfato_mensagens;0]
+            $setVar[checarfato_valorFala;0]
+    $endif
+        
+    $cooldown[10s;To descansando]
+$endif
