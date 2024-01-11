@@ -1,0 +1,28 @@
+$reply
+
+$onlyPerms[kick;Você precisa da permissão 'Expulsar membros']
+
+$onlyBotPerms[kick;Eu preciso da permissão 'Expulsar membros']
+
+$argsCheck[>1;
+`Uso:
+  D!expulsar @usuário <motivo>
+ Exemplo:
+  D!expulsar ppandinhoo ah sei o que sei o que lá`]
+
+$c[Procurar uma maneira de fazer o motivo ser opcional..]
+
+$if[$checkCondition[$username[$mentioned[<]]==$username]]
+ Você não pode se expulsar
+$endif
+
+$if[$checkCondition[$username[$mentioned[<]]==$botID]]
+ Você não pode me expulsar, tá doido é?
+$endif
+
+$if[$userID[$rolePosition[$highestRole]]<=$userID[$mentioned[<]$rolePosition[$highestRole]]
+ Você não pode expulsar alguém com um cargo maior que o seu
+$endif
+
+$username[$mentioned[1]]#$discriminator[] foi expulso
+$kickMention[$username[$mentioned[<]] expulso! Motivo: $noMentionMessage]
