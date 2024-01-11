@@ -1,0 +1,10 @@
+$nomention
+
+$argsCheck[>2;`D!frase <@usuário> <mensagem>`]
+
+"$noMentionMessage"
+--<@$mentioned[1]>, $year
+
+$if[$checkContains[$message;Monkey Island;CS;CS 1.6;Counter-Strike]]
+ Não isso aí não
+$endif
