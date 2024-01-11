@@ -1,0 +1,24 @@
+$nomention
+$reply
+
+$argsCheck[>1;`Uso: D!limpar <número de mensagens pra limpar>`]
+
+$onlyPerms[managemessages;Você precisa da permissão 'Gerenciar mensagens']
+$onlyBotPerms[managemessages;Eu preciso da permissão 'Gerenciar mensagens!']
+
+$try
+ $if[$checkCondition[$isNumber[$message]==true]]
+  $clear[$message]
+  Limpei $message mensagem(ns)
+ $else
+  $message não é um número
+ $endif
+$catch
+Um erro aconteceu ao tentar limpar mensagens!
+  Erro:
+   "**$error[message]**
+ Veja se há um erro na sintaxe!
+  Ex:
+   `D!limpar 15`
+ Nota: você só pode limpar mensagens com menos de 14 dias!
+$endtry
