@@ -11,9 +11,9 @@ $endif
 
 $c[Código ruim porque nao sou premium hur hur hur hur, hur hur hor hur hur hur]
 $if[$getVar[taxaguei_uso]==25]
-
+ $cooldown[10s;$randomText[Espera 10 segundos antes de usar esse comando de novo, só de graça:100:;Você não acha que tá levando isso a sério de mais?]]
 $elseif[$getVar[taxaguei_uso]==45]
-
-$if[$getVar[taxaguei_uso]>60]
-
-$cooldown[10s;$randomText[Espera 10 segundos antes de usar esse comando de novo, só de graça:100:;Você não acha que tá levando isso a sério de mais?]]
+ $cooldown[30s;$randomText[Caramba, isso é muito;Goosta de ver se os outros são guei né?]
+$elseif[$getVar[taxaguei_uso]>60]
+ $cooldown[10m;$randomText[Você esqueceu dos outros comandos?;Lhe apresento: o lado de fora da sua casa;Tá chato já, para]]
+$endif
