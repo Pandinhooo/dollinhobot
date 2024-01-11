@@ -1,0 +1,21 @@
+$c[Um dos primeiros codigos que eu fiz...nao fico orgulhoso...]
+
+$nomention
+$reply
+
+$onlyPerms[managenicknames;Você precisa da permissão 'Gerenciar apelidos']
+
+$onlyBotPerms[managenicknames;Eu preciso da permissão 'Gerenciar apelidos']
+
+$argsCheck[>2;`Uso:
+D!mudarapelido @usuário <o apelido que você quer>`]
+
+$changeUsername[$message]
+
+Apelido de <@$mentioned[1]> mudado pra $noMentionMessage
+
+$cooldown[10s;Você precisa esperar %time% antes de usar esse comando de novo]
+
+$if[$noMentionMessage==$username]
+  Você não pode mudar seu próprio apelido
+$endif
